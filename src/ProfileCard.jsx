@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-function ProfileCard({ name, age, isMember, hobbies }) {
+function ProfileCard({ name, age, isMember, hobbies, onHobbyClick }) {
   return (
     <div className="profile-card">
       <div className={`member-badge ${isMember ? 'member' : 'non-member'}`}>
@@ -27,8 +27,8 @@ function ProfileCard({ name, age, isMember, hobbies }) {
         <h3 className="hobbies-title">Hobbies & Interests</h3>
         <ul className="hobbies-list">
           {hobbies.map((hobby, index) => (
-            <li key={index} className="hobby-item">
-              {hobby}
+            <li key={index} className="hobby-item" onClick={() => onHobbyClick(hobby)}>
+              {hobby} 
             </li>
           ))}
         </ul>
